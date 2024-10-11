@@ -20,6 +20,8 @@ class Canvas {
 	private:
 		void spec_vertices();
 		void create_gfx_pipeline();
+		GLuint create_shader_program(std::string vs, std::string fs);
+		std::string load_shader(std::string& path);
 
 	public:
 		Canvas(u32 width, u32 height);

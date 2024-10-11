@@ -1,36 +1,57 @@
 #include "canvas.hpp"
+#include <fstream>
 
-const char* v_shader_src = 
-	"#version 410 core\n"
-	"in vec4 pos;\n"
-	"void main() {\n"
-	"	gl_Position = vec4(pos.x, pos.y, pos.z, pos.w);\n"
-	"}\n"
-;
+/* const char* v_shader_src =  */
+/* 	"#version 410 core\n" */
+/* 	"in vec4 pos;\n" */
+/* 	"void main() {\n" */
+/* 	"	gl_Position = vec4(pos.x, pos.y, pos.z, pos.w);\n" */
+/* 	"}\n" */
+/* ; */
+/*  */
+/* const char* f_shader_src =  */
+/* 	"#version 410 core\n" */
+/* 	"out vec4 color;\n" */
+/* 	"void main() {\n" */
+/* 	"	color = vec4(1.0f, 1.0f, 1.0f, 1.0f);\n" */
+/* 	"}\n" */
+/* ; */
 
-const char* f_shader_src = 
-	"#version 410 core\n"
-	"out vec4 color;\n"
-	"void main() {\n"
-	"	color = vec4(1.0f, 1.0f, 1.0f, 1.0f);\n"
-	"}\n"
-;
+using namespace std;
 
-
-inline GLuint compile_shader(GLuint type, const char* src) {
+inline GLuint compile_shader(GLuint type, string src) {
 	GLuint shader;
 	shader = glCreateShader(type);
 	
-	glShaderSource(shader, 1, &src, nullptr);
+	const char* char_ptr = src.c_str();
+	glShaderSource(shader, 1, &char_ptr, nullptr);
 	glCompileShader(shader);
 
 	return shader;
 }
 
-GLuint create_shader_program(const char* vertex_src, const char* fragment_src) {
+string Canvas::load_shader(string& path) {
+	std::ifstream file(path);
+	std::string line;
+	std::string shader_code;
+
+	if(!file.is_open()) {
+		std::cout<<"cant load "<< path << "\n";
+		return "//error loading shader\n";
+	}
+
+	while(std::getline(file, line)) {
+		shader_code += line + "\n";
+	}
+	file.close();
+
+	return shader_code;
+}
+
+GLuint Canvas::create_shader_program(string vs, string fs) {
 	GLuint program = glCreateProgram();
-	GLuint v_shader = compile_shader(GL_VERTEX_SHADER, vertex_src);
-	GLuint f_shader = compile_shader(GL_FRAGMENT_SHADER, fragment_src);
+	GLuint v_shader = compile_shader(GL_VERTEX_SHADER, load_shader(vs));
+	GLuint f_shader = compile_shader(GL_FRAGMENT_SHADER, load_shader(fs));
 
 	glAttachShader(program, v_shader);
 	glAttachShader(program, f_shader);
@@ -40,6 +61,7 @@ GLuint create_shader_program(const char* vertex_src, const char* fragment_src) {
 
 	return program;
 }
+
 
 Canvas::Canvas(u32 width, u32 height) {
 	if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
@@ -131,8 +153,8 @@ void Canvas::spec_vertices() {
 
 void Canvas::create_gfx_pipeline() {
 	gl_gfx_pipeline_shader_program = create_shader_program(
-		v_shader_src,
-		f_shader_src
+		"./res/shaders/2d.vert",
+		"./res/shaders/2d.frag"
 	);
 }
 

@@ -1,8 +1,8 @@
-CMakeFiles/main.dir/src/core/timer.cpp.o: \
- /home/kraschowetz/Documents/C++/shader_sample/src/core/timer.cpp \
+CMakeFiles/main.dir/src/gfx/shader.cpp.o: \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/shader.cpp \
  /usr/include/stdc-predef.h \
- /home/kraschowetz/Documents/C++/shader_sample/src/core/timer.hpp \
- /home/kraschowetz/Documents/C++/shader_sample/src/core/../util/util.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/shader.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/../util/util.hpp \
  /usr/include/c++/11/iostream \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
@@ -148,12 +148,7 @@ CMakeFiles/main.dir/src/core/timer.cpp.o: \
  /usr/include/c++/11/bits/locale_facets.tcc \
  /usr/include/c++/11/bits/basic_ios.tcc \
  /usr/include/c++/11/bits/ostream.tcc /usr/include/c++/11/istream \
- /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/sstream \
- /usr/include/c++/11/bits/sstream.tcc /usr/include/c++/11/fstream \
- /usr/include/c++/11/bits/codecvt.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/11/bits/c++io.h \
- /usr/include/c++/11/bits/fstream.tcc /usr/include/c++/11/vector \
+ /usr/include/c++/11/bits/istream.tcc /usr/include/c++/11/vector \
  /usr/include/c++/11/bits/stl_uninitialized.h \
  /usr/include/c++/11/bits/stl_vector.h \
  /usr/include/c++/11/bits/stl_bvector.h \
@@ -178,15 +173,9 @@ CMakeFiles/main.dir/src/core/timer.cpp.o: \
  /usr/include/c++/11/bits/unordered_map.h \
  /usr/include/c++/11/bits/erase_if.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/kraschowetz/Documents/C++/shader_sample/src/core/../util/types.hpp \
- /usr/include/inttypes.h /usr/include/SDL2/SDL.h \
- /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
- /usr/include/SDL2/SDL_config.h \
- /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
- /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
- /usr/include/SDL2/close_code.h /usr/include/c++/11/stdlib.h \
- /usr/include/string.h /usr/include/strings.h /usr/include/c++/11/math.h \
- /usr/include/c++/11/cmath /usr/include/math.h \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/../util/types.hpp \
+ /usr/include/inttypes.h /usr/local/include/SDL2/SDL_gpu.h \
+ /usr/include/c++/11/math.h /usr/include/c++/11/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
@@ -208,7 +197,13 @@ CMakeFiles/main.dir/src/core/timer.cpp.o: \
  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
  /usr/include/c++/11/tr1/poly_hermite.tcc \
  /usr/include/c++/11/tr1/poly_laguerre.tcc \
- /usr/include/c++/11/tr1/riemann_zeta.tcc \
+ /usr/include/c++/11/tr1/riemann_zeta.tcc /usr/include/SDL2/SDL.h \
+ /usr/include/SDL2/SDL_main.h /usr/include/SDL2/SDL_stdinc.h \
+ /usr/include/SDL2/SDL_config.h \
+ /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
+ /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/begin_code.h \
+ /usr/include/SDL2/close_code.h /usr/include/c++/11/stdlib.h \
+ /usr/include/string.h /usr/include/strings.h \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/float.h \
  /usr/include/SDL2/SDL_assert.h /usr/include/SDL2/SDL_atomic.h \
  /usr/include/SDL2/SDL_platform.h /usr/include/SDL2/SDL_audio.h \
@@ -315,4 +310,7 @@ CMakeFiles/main.dir/src/core/timer.cpp.o: \
  /usr/include/SDL2/SDL_power.h /usr/include/SDL2/SDL_render.h \
  /usr/include/SDL2/SDL_shape.h /usr/include/SDL2/SDL_system.h \
  /usr/include/SDL2/SDL_timer.h /usr/include/SDL2/SDL_version.h \
- /usr/include/SDL2/SDL_locale.h /usr/include/SDL2/SDL_misc.h
+ /usr/include/SDL2/SDL_locale.h /usr/include/SDL2/SDL_misc.h \
+ /usr/include/SDL2/begin_code.h /usr/local/include/SDL2/SDL_gpu_version.h \
+ /usr/lib/gcc/x86_64-linux-gnu/11/include/stdbool.h \
+ /usr/include/SDL2/close_code.h
