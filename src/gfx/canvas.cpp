@@ -1,6 +1,45 @@
 #include "canvas.hpp"
-#include <SDL_render.h>
-#include <SDL_surface.h>
+
+const char* v_shader_src = 
+	"#version 410 core\n"
+	"in vec4 pos;\n"
+	"void main() {\n"
+	"	gl_Position = vec4(pos.x, pos.y, pos.z, pos.w);\n"
+	"}\n"
+;
+
+const char* f_shader_src = 
+	"#version 410 core\n"
+	"out vec4 color;\n"
+	"void main() {\n"
+	"	color = vec4(1.0f, 1.0f, 1.0f, 1.0f);\n"
+	"}\n"
+;
+
+
+inline GLuint compile_shader(GLuint type, const char* src) {
+	GLuint shader;
+	shader = glCreateShader(type);
+	
+	glShaderSource(shader, 1, &src, nullptr);
+	glCompileShader(shader);
+
+	return shader;
+}
+
+GLuint create_shader_program(const char* vertex_src, const char* fragment_src) {
+	GLuint program = glCreateProgram();
+	GLuint v_shader = compile_shader(GL_VERTEX_SHADER, vertex_src);
+	GLuint f_shader = compile_shader(GL_FRAGMENT_SHADER, fragment_src);
+
+	glAttachShader(program, v_shader);
+	glAttachShader(program, f_shader);
+	glLinkProgram(program);
+
+	glValidateProgram(program);
+
+	return program;
+}
 
 Canvas::Canvas(u32 width, u32 height) {
 	if(SDL_Init(SDL_INIT_EVERYTHING) < 0) {
@@ -12,45 +51,109 @@ Canvas::Canvas(u32 width, u32 height) {
 		SDL_WINDOWPOS_CENTERED,
 		width,
 		height,
-		0
+		SDL_WINDOW_OPENGL
 	);
 
 	if(!window) {
 		std::cerr << "falha ao inicializar janela";
+		return;
 	}
 
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
+	SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
+	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
+	SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24);
 
-	renderer = SDL_CreateRenderer(
-		window,
-		-1,
-		SDL_RENDERER_ACCELERATED
-	);
-	if(!renderer) {
-		std::cerr << "falha ao inicializar renderizador";
+
+	gl_context = SDL_GL_CreateContext(window);
+	if(!gl_context) {
+		std::cerr << "falha ao iniciar OpenGL";
+		return;
 	}
 
-	SDL_SetRenderDrawBlendMode(renderer, SDL_BLENDMODE_BLEND);
+	glewExperimental = GL_TRUE;
+	GLenum glewError = glewInit();
+
+	if( glewError != GLEW_OK ) {
+		std::cout << "falha ao inicializar glew";
+		return;
+	}
+	if(SDL_GL_SetSwapInterval( 1 ) < 0) {
+		std::cout << "falha ao habilitar vsync";
+	}
+	spec_vertices();
+	create_gfx_pipeline();
+
+	std::cout << "vendor: " << glGetString(GL_VENDOR) << "\n";
+	std::cout << "renderer: " << glGetString(GL_RENDERER) << "\n";
+	std::cout << "gl version: " << glGetString(GL_VERSION) << "\n";
+	std::cout << "shading lang version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << "\n";
 }
 
 Canvas::~Canvas() {
 	SDL_DestroyWindow(window);
-	SDL_DestroyRenderer(renderer);
+	SDL_Quit();
+}
+
+void Canvas::spec_vertices() {
+	const std::vector<GLfloat> vertex_position = {
+		-0.8f, -0.8f, 0.0f,
+		0.8f, -0.8f, 0.0f,
+		0.0f, 0.8f, 0.0f
+	};
+	glGenVertexArrays(1, &gl_vertex_array_object);
+	glBindVertexArray(gl_vertex_array_object);
+	glGenBuffers(1, &gl_vertex_buffer_object);
+	glBindBuffer(GL_ARRAY_BUFFER, gl_vertex_buffer_object);
+
+	glBufferData(
+		GL_ARRAY_BUFFER,
+		vertex_position.size() * sizeof(GLfloat),
+		vertex_position.data(),
+		GL_STATIC_DRAW
+	);
+
+	glEnableVertexAttribArray(0);
+	glVertexAttribPointer(
+		0,
+		3,
+		GL_FLOAT,
+		GL_FALSE,
+		0,
+		(void*)0
+	);
+
+	glBindVertexArray(0);
+	glDisableVertexAttribArray(0);
+
+}
+
+void Canvas::create_gfx_pipeline() {
+	gl_gfx_pipeline_shader_program = create_shader_program(
+		v_shader_src,
+		f_shader_src
+	);
 }
 
 void Canvas::render() {
-	SDL_RenderClear(renderer);
-
-	SDL_SetRenderDrawColor(
-		renderer,
-		0,
-		0,
-		0,
-		0
-	);
+	/* pre render */
+	glDisable(GL_DEPTH_TEST);
+	glDisable(GL_CULL_FACE);
 	
-	SDL_RenderFillRect(renderer, NULL);
+	glViewport(0, 0, 1152, 648);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
-	SDL_RenderPresent(renderer);
+	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+
+	glUseProgram(gl_gfx_pipeline_shader_program);
+
+	/* render */
+	
+	glBindVertexArray(gl_vertex_array_object);
+	glBindBuffer(GL_ARRAY_BUFFER, gl_vertex_array_object);
+
+	glDrawArrays(GL_TRIANGLES, 0, 3);
+
+	SDL_GL_SwapWindow(window);
 }

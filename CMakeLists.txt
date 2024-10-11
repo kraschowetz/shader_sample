@@ -25,7 +25,7 @@ endif()
 add_executable(main ${sources})
 
 if(TARGET SDL2::SDL2main)
-	target_link_libraries(main PRIVATE SDL2::SDL2main SDL2_image)
+	target_link_libraries(main PRIVATE SDL2::SDL2main SDL2_image GL GLU GLEW)
 endif()
 
 add_compile_options(-02)
