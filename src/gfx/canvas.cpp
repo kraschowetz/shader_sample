@@ -120,14 +120,28 @@ Canvas::~Canvas() {
 
 void Canvas::spec_vertices() {
 	const std::vector<GLfloat> vertex_position = {
-		-0.8f, -0.8f, 0.0f,
-		0.8f, -0.8f, 0.0f,
-		0.0f, 0.8f, 0.0f
+		-0.3f, -0.3f, 0.0f,
+		0.3f, -0.3f, 0.0f,
+		-0.3f, 0.3f, 0.0f,
+
+		0.3f, -0.3f, 0.0f,
+		0.3f, 0.3f, 0.0f,
+		-0.3f, 0.3f, 0.0f,
+		
+	};
+	const std::vector<GLfloat> vertex_color = {
+		1.0f, 0.0f, 0.0f,
+		0.0f, 1.0f, 0.0f,
+		0.0f, 0.0f, 1.0f,
+
+		1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f, 1.0f,
+		1.0f, 1.0f, 1.0f
 	};
 	glGenVertexArrays(1, &gl_vertex_array_object);
 	glBindVertexArray(gl_vertex_array_object);
-	glGenBuffers(1, &gl_vertex_buffer_object);
-	glBindBuffer(GL_ARRAY_BUFFER, gl_vertex_buffer_object);
+	glGenBuffers(1, &gl_vertex_buffer_object1);
+	glBindBuffer(GL_ARRAY_BUFFER, gl_vertex_buffer_object1);
 
 	glBufferData(
 		GL_ARRAY_BUFFER,
@@ -146,9 +160,31 @@ void Canvas::spec_vertices() {
 		(void*)0
 	);
 
+	//color
+	
+	glGenBuffers(1, &gl_vertex_buffer_object1);
+	glBindBuffer(GL_ARRAY_BUFFER, gl_vertex_buffer_object1);
+
+	glBufferData(
+		GL_ARRAY_BUFFER,
+		vertex_color.size() * sizeof(GLfloat),
+		vertex_color.data(),
+		GL_STATIC_DRAW
+	);
+	glEnableVertexAttribArray(1);
+	glVertexAttribPointer(
+		1,
+		3,
+		GL_FLOAT,
+		GL_FALSE,
+		0,
+		(void*)0
+	);
+
+
 	glBindVertexArray(0);
 	glDisableVertexAttribArray(0);
-
+	glDisableVertexAttribArray(1);
 }
 
 void Canvas::create_gfx_pipeline() {
@@ -175,7 +211,6 @@ void Canvas::render() {
 	glBindVertexArray(gl_vertex_array_object);
 	glBindBuffer(GL_ARRAY_BUFFER, gl_vertex_array_object);
 
-	glDrawArrays(GL_TRIANGLES, 0, 3);
-
+	glDrawArrays(GL_TRIANGLES, 0, 6);
 	SDL_GL_SwapWindow(window);
 }

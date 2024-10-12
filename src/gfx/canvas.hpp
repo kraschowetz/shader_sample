@@ -15,6 +15,7 @@ class Canvas {
 		/* make this better  */
 		GLuint gl_vertex_array_object = 0;
 		GLuint gl_vertex_buffer_object = 0;
+		GLuint gl_vertex_buffer_object1 = 0;
 		GLuint gl_gfx_pipeline_shader_program = 0;
 
 	private:
