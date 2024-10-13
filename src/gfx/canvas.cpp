@@ -1,21 +1,4 @@
 #include "canvas.hpp"
-#include <fstream>
-
-/* const char* v_shader_src =  */
-/* 	"#version 410 core\n" */
-/* 	"in vec4 pos;\n" */
-/* 	"void main() {\n" */
-/* 	"	gl_Position = vec4(pos.x, pos.y, pos.z, pos.w);\n" */
-/* 	"}\n" */
-/* ; */
-/*  */
-/* const char* f_shader_src =  */
-/* 	"#version 410 core\n" */
-/* 	"out vec4 color;\n" */
-/* 	"void main() {\n" */
-/* 	"	color = vec4(1.0f, 1.0f, 1.0f, 1.0f);\n" */
-/* 	"}\n" */
-/* ; */
 
 using namespace std;
 
@@ -123,19 +106,12 @@ void Canvas::spec_vertices() {
 		-0.3f, -0.3f, 0.0f,
 		0.3f, -0.3f, 0.0f,
 		-0.3f, 0.3f, 0.0f,
-
-		0.3f, -0.3f, 0.0f,
-		0.3f, 0.3f, 0.0f,
-		-0.3f, 0.3f, 0.0f,
-		
+		0.3f, 0.3f, 0.0f
 	};
 	const std::vector<GLfloat> vertex_color = {
 		1.0f, 0.0f, 0.0f,
 		0.0f, 1.0f, 0.0f,
 		0.0f, 0.0f, 1.0f,
-
-		1.0f, 1.0f, 1.0f,
-		1.0f, 1.0f, 1.0f,
 		1.0f, 1.0f, 1.0f
 	};
 	glGenVertexArrays(1, &gl_vertex_array_object);
@@ -181,6 +157,21 @@ void Canvas::spec_vertices() {
 		(void*)0
 	);
 
+	//ibo
+	
+	const vector<GLuint> ibo_data = {
+		2, 0, 1,
+		3, 2, 1
+	};
+
+	glGenBuffers(1, &gl_index_buffer_object);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, gl_index_buffer_object);
+	glBufferData(
+		GL_ELEMENT_ARRAY_BUFFER,
+		ibo_data.size() * sizeof(GLuint),
+		ibo_data.data(),
+		GL_STATIC_DRAW
+	);
 
 	glBindVertexArray(0);
 	glDisableVertexAttribArray(0);
@@ -205,12 +196,25 @@ void Canvas::render() {
 	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
 
 	glUseProgram(gl_gfx_pipeline_shader_program);
+	
+	GLuint time_uniform = glGetUniformLocation(
+		gl_gfx_pipeline_shader_program,
+		"time"
+	); 
+
+	glUniform1f(time_uniform, time);
 
 	/* render */
 	
 	glBindVertexArray(gl_vertex_array_object);
 	glBindBuffer(GL_ARRAY_BUFFER, gl_vertex_array_object);
-
-	glDrawArrays(GL_TRIANGLES, 0, 6);
+	
+	glDrawElements(
+		GL_TRIANGLES,
+		6,
+		GL_UNSIGNED_INT,
+		0
+	);
+	/* glDrawArrays(GL_TRIANGLES, 0, 6); */
 	SDL_GL_SwapWindow(window);
 }
