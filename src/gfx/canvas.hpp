@@ -1,11 +1,8 @@
 #ifndef CANVAS_HPP
 #define CANVAS_HPP
 
-#include <SDL2/SDL.h>
-#include <GL/glew.h>
-#include <SDL_opengl.h>
-#include <GL/glu.h>
-#include "../util/util.hpp"
+#include "gfx.hpp"
+#include "renderer.hpp"
 
 class Canvas {
 	private:

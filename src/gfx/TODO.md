@@ -1,0 +1,2 @@
+- actualy rendering thing :)
+- remove constructors & destructors to minimize mallocs
