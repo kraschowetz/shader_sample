@@ -8,7 +8,11 @@ uniform float time;
 out vec3 vertex_color;
 
 void main() {
-	gl_Position = vec4(pos.x, pos.y, pos.z, 1.0f);
+	gl_Position = vec4(
+		pos.x,
+		pos.y + sin(time + pos.x) * 0.25,
+		pos.z,
+		1.0f);
 
 	vertex_color = color;
 }

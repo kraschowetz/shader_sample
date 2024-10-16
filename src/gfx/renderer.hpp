@@ -8,6 +8,8 @@ class Renderer {
 		SDL_GLContext context;
 		GLuint vbo, ibo, vao, shader_program;
 	public:
+		f32 time;	// testando uniforms
+		
 		Renderer(SDL_Window *window, bool debug_specs);
 		void prepare();
 		void render(SDL_Window *window);

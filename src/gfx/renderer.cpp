@@ -44,7 +44,7 @@ std::string _load_shader(std::string src) {
 	std::string code;
 
 	if(!file.is_open()) {
-		std::cerr << "error loading shader\n";
+		std::cerr << "error loading shader" << src << "\n";
 		return "error loading shader\n";
 	}
 
@@ -84,9 +84,9 @@ void Renderer::create_shader() {
 
 void Renderer::spec_vertices() {
 	const std::vector<GLfloat> vertex_position = {
-		-1.0f, -1.0f, 0.0f,
-		1.0f, -1.0f, 0.0f,
-		0.0f, 1.0f, 0.0f
+		-0.3f, -0.3f, 0.0f,
+		0.3f, -0.3f, 0.0f,
+		0.0f, 0.3f, 0.0f
 	};
 	const std::vector<GLfloat> vertex_color = {
 		1.0f, 0.0f, 0.0f,
@@ -174,7 +174,7 @@ void Renderer::render(SDL_Window *window) {
 	glUseProgram(shader_program);
 	GLuint time_uniform = glGetUniformLocation(shader_program, "time");
 
-	glUniform1f(time_uniform, 1.0f);
+	glUniform1f(time_uniform, time);
 
 	glBindVertexArray(vao);
 	glBindBuffer(GL_ARRAY_BUFFER, vao);
@@ -184,8 +184,6 @@ void Renderer::render(SDL_Window *window) {
 		0,
 		3
 	);
-
-	std::cout << vao << "\n";
 
 	SDL_GL_SwapWindow(window);
 }
