@@ -201,6 +201,30 @@ src/gfx/canvas.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/canvas.cpp.s
 .PHONY : src/gfx/canvas.cpp.s
 
+src/gfx/renderer.o: src/gfx/renderer.cpp.o
+.PHONY : src/gfx/renderer.o
+
+# target to build an object file
+src/gfx/renderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/renderer.cpp.o
+.PHONY : src/gfx/renderer.cpp.o
+
+src/gfx/renderer.i: src/gfx/renderer.cpp.i
+.PHONY : src/gfx/renderer.i
+
+# target to preprocess a source file
+src/gfx/renderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/renderer.cpp.i
+.PHONY : src/gfx/renderer.cpp.i
+
+src/gfx/renderer.s: src/gfx/renderer.cpp.s
+.PHONY : src/gfx/renderer.s
+
+# target to generate assembly for a file
+src/gfx/renderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/renderer.cpp.s
+.PHONY : src/gfx/renderer.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -243,6 +267,9 @@ help:
 	@echo "... src/gfx/canvas.o"
 	@echo "... src/gfx/canvas.i"
 	@echo "... src/gfx/canvas.s"
+	@echo "... src/gfx/renderer.o"
+	@echo "... src/gfx/renderer.i"
+	@echo "... src/gfx/renderer.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

@@ -2,7 +2,7 @@
 #include "timer.hpp"
 
 Engine::Engine() {
-	canvas = new Canvas(1152, 648);
+	canvas = new Canvas(800, 600);
 	running = false;
 }
 

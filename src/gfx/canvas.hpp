@@ -17,6 +17,8 @@ class Canvas {
 		GLuint gl_index_buffer_object = 0;
 		GLuint gl_gfx_pipeline_shader_program = 0;
 
+		Renderer *renderer;
+
 	private:
 		void spec_vertices();
 		void create_gfx_pipeline();

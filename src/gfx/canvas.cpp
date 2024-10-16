@@ -70,30 +70,34 @@ Canvas::Canvas(u32 width, u32 height) {
 	/* SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE); */
 	/* SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 24); */
 	/*  */
+	
+	renderer = new Renderer(window, true);
 
-	gl_context = SDL_GL_CreateContext(window);
-	if(!gl_context) {
-		std::cerr << "falha ao iniciar OpenGL";
-		return;
-	}
+	/* return; //yahoo */
 
-	glewExperimental = GL_TRUE;
-	GLenum glewError = glewInit();
-
-	if( glewError != GLEW_OK ) {
-		std::cout << "falha ao inicializar glew";
-		return;
-	}
-	if(SDL_GL_SetSwapInterval( 1 ) < 0) {
-		std::cout << "falha ao habilitar vsync";
-	}
-	spec_vertices();
-	create_gfx_pipeline();
-
-	std::cout << "vendor: " << glGetString(GL_VENDOR) << "\n";
-	std::cout << "renderer: " << glGetString(GL_RENDERER) << "\n";
-	std::cout << "gl version: " << glGetString(GL_VERSION) << "\n";
-	std::cout << "shading lang version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << "\n";
+	/* gl_context = SDL_GL_CreateContext(window); */
+	/* if(!gl_context) { */
+	/* 	std::cerr << "falha ao iniciar OpenGL"; */
+	/* 	return; */
+	/* } */
+	/*  */
+	/* glewExperimental = GL_TRUE; */
+	/* GLenum glewError = glewInit(); */
+	/*  */
+	/* if( glewError != GLEW_OK ) { */
+	/* 	std::cout << "falha ao inicializar glew"; */
+	/* 	return; */
+	/* } */
+	/* if(SDL_GL_SetSwapInterval( 1 ) < 0) { */
+	/* 	std::cout << "falha ao habilitar vsync"; */
+	/* } */
+	/* spec_vertices(); */
+	/* create_gfx_pipeline(); */
+	/*  */
+	/* std::cout << "vendor: " << glGetString(GL_VENDOR) << "\n"; */
+	/* std::cout << "renderer: " << glGetString(GL_RENDERER) << "\n"; */
+	/* std::cout << "gl version: " << glGetString(GL_VERSION) << "\n"; */
+	/* std::cout << "shading lang version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << "\n"; */
 }
 
 Canvas::~Canvas() {
@@ -188,34 +192,37 @@ void Canvas::create_gfx_pipeline() {
 
 void Canvas::render() {
 	/* pre render */
-	glDisable(GL_DEPTH_TEST);
-	glDisable(GL_CULL_FACE);
-	
-	glViewport(0, 0, 1152, 648);
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
-	glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT);
+	renderer->render(window);
 
-	glUseProgram(gl_gfx_pipeline_shader_program);
-	
-	GLuint time_uniform = glGetUniformLocation(
-		gl_gfx_pipeline_shader_program,
-		"time"
-	); 
-
-	glUniform1f(time_uniform, time);
-
-	/* render */
-	
-	glBindVertexArray(gl_vertex_array_object);
-	glBindBuffer(GL_ARRAY_BUFFER, gl_vertex_array_object);
-	
-	glDrawElements(
-		GL_TRIANGLES,
-		6,
-		GL_UNSIGNED_INT,
-		0
-	);
-	/* glDrawArrays(GL_TRIANGLES, 0, 6); */
-	SDL_GL_SwapWindow(window);
+	/* glDisable(GL_DEPTH_TEST); */
+	/* glDisable(GL_CULL_FACE); */
+	/*  */
+	/* glViewport(0, 0, 1152, 648); */
+	/* glClearColor(0.0f, 0.0f, 0.0f, 1.0f); */
+	/*  */
+	/* glClear(GL_DEPTH_BUFFER_BIT | GL_COLOR_BUFFER_BIT); */
+	/*  */
+	/* glUseProgram(gl_gfx_pipeline_shader_program); */
+	/*  */
+	/* GLuint time_uniform = glGetUniformLocation( */
+	/* 	gl_gfx_pipeline_shader_program, */
+	/* 	"time" */
+	/* );  */
+	/*  */
+	/* glUniform1f(time_uniform, time); */
+	/*  */
+	 /* render */ 
+	/*  */
+	/* glBindVertexArray(gl_vertex_array_object); */
+	/* glBindBuffer(GL_ARRAY_BUFFER, gl_vertex_array_object); */
+	/*  */
+	/* glDrawElements( */
+	/* 	GL_TRIANGLES, */
+	/* 	6, */
+	/* 	GL_UNSIGNED_INT, */
+	/* 	0 */
+	/* ); */
+	/*  glDrawArrays(GL_TRIANGLES, 0, 6); */ 
+	/* SDL_GL_SwapWindow(window); */
 }

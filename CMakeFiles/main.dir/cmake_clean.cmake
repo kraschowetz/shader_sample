@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/core/timer.cpp.o.d"
   "CMakeFiles/main.dir/src/gfx/canvas.cpp.o"
   "CMakeFiles/main.dir/src/gfx/canvas.cpp.o.d"
+  "CMakeFiles/main.dir/src/gfx/renderer.cpp.o"
+  "CMakeFiles/main.dir/src/gfx/renderer.cpp.o.d"
   "CMakeFiles/main.dir/src/main.cpp.o"
   "CMakeFiles/main.dir/src/main.cpp.o.d"
   "main"

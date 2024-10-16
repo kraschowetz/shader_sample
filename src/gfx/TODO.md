@@ -1,2 +1,3 @@
-- actualy rendering thing :)
-- remove constructors & destructors to minimize mallocs
+- IBOs
+- classe VAO, & VBO
+- abstracão XD

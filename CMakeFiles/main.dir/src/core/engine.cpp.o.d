@@ -181,6 +181,7 @@ CMakeFiles/main.dir/src/core/engine.cpp.o: \
  /home/kraschowetz/Documents/C++/shader_sample/src/core/../util/types.hpp \
  /usr/include/inttypes.h \
  /home/kraschowetz/Documents/C++/shader_sample/src/core/../gfx/canvas.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/core/../gfx/gfx.hpp \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
@@ -320,4 +321,5 @@ CMakeFiles/main.dir/src/core/engine.cpp.o: \
  /usr/include/GL/glew.h /usr/include/c++/11/cstddef /usr/include/GL/glu.h \
  /usr/include/GL/gl.h /usr/include/SDL2/SDL_opengl.h \
  /home/kraschowetz/Documents/C++/shader_sample/src/core/../gfx/../util/util.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/core/../gfx/renderer.hpp \
  /home/kraschowetz/Documents/C++/shader_sample/src/core/timer.hpp

@@ -2,6 +2,7 @@ CMakeFiles/main.dir/src/gfx/canvas.cpp.o: \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/canvas.cpp \
  /usr/include/stdc-predef.h \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/canvas.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/gfx.hpp \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
  /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
@@ -317,4 +318,5 @@ CMakeFiles/main.dir/src/gfx/canvas.cpp.o: \
  /usr/include/c++/11/bits/unordered_map.h \
  /usr/include/c++/11/bits/erase_if.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/kraschowetz/Documents/C++/shader_sample/src/gfx/../util/types.hpp
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/../util/types.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/renderer.hpp

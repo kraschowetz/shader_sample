@@ -14,9 +14,9 @@ void main() {
 	}
 
 	color = vec4(
-		vertex_color.r + ( 0.75 * sin_time),
-		vertex_color.g + (0.75 * sin_time),
-		vertex_color.b + (0.25 * sin_time),
+		vertex_color.r + (0.0 * sin_time),
+		vertex_color.g + (0.0 * sin_time),
+		vertex_color.b + (0.0 * sin_time),
 		1.0f
 	);
 }

@@ -19,6 +19,12 @@
 },
 {
   "directory": "/home/kraschowetz/Documents/C++/shader_sample",
+  "command": "/usr/bin/c++  -isystem /usr/include/SDL2  -o CMakeFiles/main.dir/src/gfx/renderer.cpp.o -c /home/kraschowetz/Documents/C++/shader_sample/src/gfx/renderer.cpp",
+  "file": "/home/kraschowetz/Documents/C++/shader_sample/src/gfx/renderer.cpp",
+  "output": "CMakeFiles/main.dir/src/gfx/renderer.cpp.o"
+},
+{
+  "directory": "/home/kraschowetz/Documents/C++/shader_sample",
   "command": "/usr/bin/c++  -isystem /usr/include/SDL2  -o CMakeFiles/main.dir/src/main.cpp.o -c /home/kraschowetz/Documents/C++/shader_sample/src/main.cpp",
   "file": "/home/kraschowetz/Documents/C++/shader_sample/src/main.cpp",
   "output": "CMakeFiles/main.dir/src/main.cpp.o"

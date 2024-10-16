@@ -1,7 +1,7 @@
-CMakeFiles/main.dir/src/gfx/shader.cpp.o: \
- /home/kraschowetz/Documents/C++/shader_sample/src/gfx/shader.cpp \
+CMakeFiles/main.dir/src/gfx/renderer.cpp.o: \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/renderer.cpp \
  /usr/include/stdc-predef.h \
- /home/kraschowetz/Documents/C++/shader_sample/src/gfx/shader.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/renderer.hpp \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/gfx.hpp \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
