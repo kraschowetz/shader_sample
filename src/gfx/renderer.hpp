@@ -8,8 +8,8 @@ class Renderer {
 	private:
 		SDL_GLContext context;
 		GLuint shader_program;
-		struct VBO vbo, ibo;
-		struct VAO vao;
+		struct VBO vbo, vbo1;
+		struct VAO vao, vao1;
 	public:
 		f32 time;	// testando uniforms
 		

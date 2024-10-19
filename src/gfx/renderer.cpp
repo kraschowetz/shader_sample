@@ -1,4 +1,5 @@
 #include "renderer.hpp"
+#include "gfx.hpp"
 #include "vao.hpp"
 #include "vbo.hpp"
 
@@ -95,6 +96,12 @@ void Renderer::spec_vertices() {
 		0.0f, 1.0f, 0.0f,
 		0.0f, 0.0f, 1.0f
 	};
+
+	const std::vector<GLfloat> vertex_position1 = {
+		-1.0f, -1.0f, 0.0f,
+		-0.4f, -1.0f, 0.0f,
+		-0.7f, -0.7f, 0.0f
+	};
 	
 	vao = create_vao();
 	bind_vao(&vao);
@@ -138,6 +145,49 @@ void Renderer::spec_vertices() {
 		0
 	);
 	
+	//second tri
+	
+	vao1 = create_vao();
+	bind_vao(&vao1);
+	vbo1 = create_vbo(GL_ARRAY_BUFFER);
+	
+	buffer_vbo(
+		&vbo1,
+		(void*)vertex_position1.data(),
+		0,
+		vertex_position1.size() * sizeof(GLfloat)
+	);
+	
+	attr_vao(
+		&vao1,
+		&vbo1,
+		0,
+		3,
+		GL_FLOAT,
+		0,
+		0
+	);
+	
+	vbo1 = create_vbo(GL_ARRAY_BUFFER);
+	
+	buffer_vbo(
+		&vbo1,
+		(void*)vertex_color.data(),
+		0,
+		vertex_color.size() * sizeof(GLfloat)
+	);
+	
+	attr_vao(
+		&vao1,
+		&vbo1,
+		1,
+		3,
+		GL_FLOAT,
+		0,
+		0
+	);
+
+
 	flush_vao_attr({0, 1});
 }
 
@@ -162,6 +212,17 @@ void Renderer::render(SDL_Window *window) {
 	bind_vao(&vao);
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vao.handle);
 
+	glDrawArrays(
+		GL_TRIANGLES,
+		0,
+		3
+	);
+	
+	glUseProgram(shader_program);
+	time_uniform = glGetUniformLocation(shader_program, "time");
+	glUniform1f(time_uniform, time);
+	bind_vao(&vao1);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vao1.handle);
 	glDrawArrays(
 		GL_TRIANGLES,
 		0,
