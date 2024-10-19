@@ -1,4 +1,6 @@
 #include "renderer.hpp"
+#include "vao.hpp"
+#include "vbo.hpp"
 
 Renderer::Renderer(SDL_Window *window, bool debug_specs = true) {
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
@@ -93,69 +95,50 @@ void Renderer::spec_vertices() {
 		0.0f, 1.0f, 0.0f,
 		0.0f, 0.0f, 1.0f
 	};
-
-	glGenVertexArrays(1, &vao);
-	glBindVertexArray(vao);
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-
-	glBufferData(
-		GL_ARRAY_BUFFER,
-		vertex_position.size() * sizeof(GLfloat),
+	
+	vao = create_vao();
+	bind_vao(&vao);
+	vbo = create_vbo(GL_ARRAY_BUFFER);
+	bind_vbo(&vbo);
+	
+	buffer_vbo(
+		&vbo,
 		(void*)vertex_position.data(),
-		GL_STATIC_DRAW
+		0,
+		vertex_position.size() * sizeof(GLfloat)
 	);
-
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(
+	
+	attr_vao(
+		&vao,
+		&vbo,
 		0,
 		3,
 		GL_FLOAT,
-		GL_FALSE,
 		0,
-		(void*)0
+		0
 	);
 
 	//color
 	
-	glGenBuffers(1, &vbo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-
-	glBufferData(
-		GL_ARRAY_BUFFER,
-		vertex_color.size() * sizeof(GLfloat),
+	vbo = create_vbo(GL_ARRAY_BUFFER);
+	buffer_vbo(
+		&vbo,
 		(void*)vertex_color.data(),
-		GL_STATIC_DRAW
+		0,
+		vertex_color.size() * sizeof(GLfloat)
 	);
 
-	glEnableVertexAttribArray(1);
-	glVertexAttribPointer(
+	attr_vao(
+		&vao,
+		&vbo,
 		1,
 		3,
 		GL_FLOAT,
-		GL_FALSE,
 		0,
-		(void*)0
-	);
-
-	//ibo
-	const std::vector<GLuint> ibo_data = {
-		0, 1, 2
-	};
-
-	glGenBuffers(1, &ibo);
-	glBindBuffer(GL_ARRAY_BUFFER, vbo);
-
-	glBufferData(
-		GL_ELEMENT_ARRAY_BUFFER,
-		ibo_data.size() * sizeof(GLfloat),
-		ibo_data.data(),
-		GL_STATIC_DRAW
+		0
 	);
 	
-	glBindVertexArray(0);
-	glDisableVertexAttribArray(0);
-	glDisableVertexAttribArray(1);
+	flush_vao_attr({0, 1});
 }
 
 void Renderer::prepare() {
@@ -176,8 +159,8 @@ void Renderer::render(SDL_Window *window) {
 
 	glUniform1f(time_uniform, time);
 
-	glBindVertexArray(vao);
-	glBindBuffer(GL_ARRAY_BUFFER, vao);
+	bind_vao(&vao);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vao.handle);
 
 	glDrawArrays(
 		GL_TRIANGLES,

@@ -1,3 +1,0 @@
-- IBOs
-- classe VAO, & VBO
-- abstracão XD

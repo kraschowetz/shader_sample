@@ -2,11 +2,14 @@
 #define RENDERER_HPP
 
 #include "gfx.hpp"
+#include "vao.hpp"
 
 class Renderer {
 	private:
 		SDL_GLContext context;
-		GLuint vbo, ibo, vao, shader_program;
+		GLuint shader_program;
+		struct VBO vbo, ibo;
+		struct VAO vao;
 	public:
 		f32 time;	// testando uniforms
 		

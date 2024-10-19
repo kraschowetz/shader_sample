@@ -225,6 +225,54 @@ src/gfx/renderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/renderer.cpp.s
 .PHONY : src/gfx/renderer.cpp.s
 
+src/gfx/vao.o: src/gfx/vao.cpp.o
+.PHONY : src/gfx/vao.o
+
+# target to build an object file
+src/gfx/vao.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/vao.cpp.o
+.PHONY : src/gfx/vao.cpp.o
+
+src/gfx/vao.i: src/gfx/vao.cpp.i
+.PHONY : src/gfx/vao.i
+
+# target to preprocess a source file
+src/gfx/vao.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/vao.cpp.i
+.PHONY : src/gfx/vao.cpp.i
+
+src/gfx/vao.s: src/gfx/vao.cpp.s
+.PHONY : src/gfx/vao.s
+
+# target to generate assembly for a file
+src/gfx/vao.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/vao.cpp.s
+.PHONY : src/gfx/vao.cpp.s
+
+src/gfx/vbo.o: src/gfx/vbo.cpp.o
+.PHONY : src/gfx/vbo.o
+
+# target to build an object file
+src/gfx/vbo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/vbo.cpp.o
+.PHONY : src/gfx/vbo.cpp.o
+
+src/gfx/vbo.i: src/gfx/vbo.cpp.i
+.PHONY : src/gfx/vbo.i
+
+# target to preprocess a source file
+src/gfx/vbo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/vbo.cpp.i
+.PHONY : src/gfx/vbo.cpp.i
+
+src/gfx/vbo.s: src/gfx/vbo.cpp.s
+.PHONY : src/gfx/vbo.s
+
+# target to generate assembly for a file
+src/gfx/vbo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/vbo.cpp.s
+.PHONY : src/gfx/vbo.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -270,6 +318,12 @@ help:
 	@echo "... src/gfx/renderer.o"
 	@echo "... src/gfx/renderer.i"
 	@echo "... src/gfx/renderer.s"
+	@echo "... src/gfx/vao.o"
+	@echo "... src/gfx/vao.i"
+	@echo "... src/gfx/vao.s"
+	@echo "... src/gfx/vbo.o"
+	@echo "... src/gfx/vbo.i"
+	@echo "... src/gfx/vbo.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

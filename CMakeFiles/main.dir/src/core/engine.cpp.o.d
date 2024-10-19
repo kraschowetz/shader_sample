@@ -322,4 +322,6 @@ CMakeFiles/main.dir/src/core/engine.cpp.o: \
  /usr/include/GL/gl.h /usr/include/SDL2/SDL_opengl.h \
  /home/kraschowetz/Documents/C++/shader_sample/src/core/../gfx/../util/util.hpp \
  /home/kraschowetz/Documents/C++/shader_sample/src/core/../gfx/renderer.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/core/../gfx/vao.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/core/../gfx/vbo.hpp \
  /home/kraschowetz/Documents/C++/shader_sample/src/core/timer.hpp

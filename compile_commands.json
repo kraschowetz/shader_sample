@@ -25,6 +25,18 @@
 },
 {
   "directory": "/home/kraschowetz/Documents/C++/shader_sample",
+  "command": "/usr/bin/c++  -isystem /usr/include/SDL2  -o CMakeFiles/main.dir/src/gfx/vao.cpp.o -c /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vao.cpp",
+  "file": "/home/kraschowetz/Documents/C++/shader_sample/src/gfx/vao.cpp",
+  "output": "CMakeFiles/main.dir/src/gfx/vao.cpp.o"
+},
+{
+  "directory": "/home/kraschowetz/Documents/C++/shader_sample",
+  "command": "/usr/bin/c++  -isystem /usr/include/SDL2  -o CMakeFiles/main.dir/src/gfx/vbo.cpp.o -c /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vbo.cpp",
+  "file": "/home/kraschowetz/Documents/C++/shader_sample/src/gfx/vbo.cpp",
+  "output": "CMakeFiles/main.dir/src/gfx/vbo.cpp.o"
+},
+{
+  "directory": "/home/kraschowetz/Documents/C++/shader_sample",
   "command": "/usr/bin/c++  -isystem /usr/include/SDL2  -o CMakeFiles/main.dir/src/main.cpp.o -c /home/kraschowetz/Documents/C++/shader_sample/src/main.cpp",
   "file": "/home/kraschowetz/Documents/C++/shader_sample/src/main.cpp",
   "output": "CMakeFiles/main.dir/src/main.cpp.o"

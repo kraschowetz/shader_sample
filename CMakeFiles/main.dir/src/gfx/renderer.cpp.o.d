@@ -318,4 +318,6 @@ CMakeFiles/main.dir/src/gfx/renderer.cpp.o: \
  /usr/include/c++/11/bits/unordered_map.h \
  /usr/include/c++/11/bits/erase_if.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/kraschowetz/Documents/C++/shader_sample/src/gfx/../util/types.hpp
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/../util/types.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vao.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vbo.hpp
