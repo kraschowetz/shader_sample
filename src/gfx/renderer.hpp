@@ -3,11 +3,12 @@
 
 #include "gfx.hpp"
 #include "vao.hpp"
+#include "shader.hpp"
 
 class Renderer {
 	private:
 		SDL_GLContext context;
-		GLuint shader_program;
+		struct Shader shader;
 		struct VBO vbo, vbo1;
 		struct VAO vao, vao1;
 	public:
@@ -17,7 +18,6 @@ class Renderer {
 		void prepare();
 		void render(SDL_Window *window);
 		void spec_vertices();
-		void create_shader();
 };
 
 #endif

@@ -125,10 +125,24 @@ CMakeFiles/main.dir/src/gfx/renderer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/gfx/renderer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kraschowetz/Documents/C++/shader_sample/src/gfx/renderer.cpp -o CMakeFiles/main.dir/src/gfx/renderer.cpp.s
 
+CMakeFiles/main.dir/src/gfx/shader.cpp.o: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/gfx/shader.cpp.o: src/gfx/shader.cpp
+CMakeFiles/main.dir/src/gfx/shader.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kraschowetz/Documents/C++/shader_sample/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/gfx/shader.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/gfx/shader.cpp.o -MF CMakeFiles/main.dir/src/gfx/shader.cpp.o.d -o CMakeFiles/main.dir/src/gfx/shader.cpp.o -c /home/kraschowetz/Documents/C++/shader_sample/src/gfx/shader.cpp
+
+CMakeFiles/main.dir/src/gfx/shader.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/gfx/shader.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/kraschowetz/Documents/C++/shader_sample/src/gfx/shader.cpp > CMakeFiles/main.dir/src/gfx/shader.cpp.i
+
+CMakeFiles/main.dir/src/gfx/shader.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/gfx/shader.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/kraschowetz/Documents/C++/shader_sample/src/gfx/shader.cpp -o CMakeFiles/main.dir/src/gfx/shader.cpp.s
+
 CMakeFiles/main.dir/src/gfx/vao.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/gfx/vao.cpp.o: src/gfx/vao.cpp
 CMakeFiles/main.dir/src/gfx/vao.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kraschowetz/Documents/C++/shader_sample/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/main.dir/src/gfx/vao.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kraschowetz/Documents/C++/shader_sample/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/gfx/vao.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/gfx/vao.cpp.o -MF CMakeFiles/main.dir/src/gfx/vao.cpp.o.d -o CMakeFiles/main.dir/src/gfx/vao.cpp.o -c /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vao.cpp
 
 CMakeFiles/main.dir/src/gfx/vao.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/main.dir/src/gfx/vao.cpp.s: cmake_force
 CMakeFiles/main.dir/src/gfx/vbo.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/gfx/vbo.cpp.o: src/gfx/vbo.cpp
 CMakeFiles/main.dir/src/gfx/vbo.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kraschowetz/Documents/C++/shader_sample/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/main.dir/src/gfx/vbo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kraschowetz/Documents/C++/shader_sample/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/gfx/vbo.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/gfx/vbo.cpp.o -MF CMakeFiles/main.dir/src/gfx/vbo.cpp.o.d -o CMakeFiles/main.dir/src/gfx/vbo.cpp.o -c /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vbo.cpp
 
 CMakeFiles/main.dir/src/gfx/vbo.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/main.dir/src/gfx/vbo.cpp.s: cmake_force
 CMakeFiles/main.dir/src/main.cpp.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/main.cpp.o: src/main.cpp
 CMakeFiles/main.dir/src/main.cpp.o: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kraschowetz/Documents/C++/shader_sample/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/main.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/kraschowetz/Documents/C++/shader_sample/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/main.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/main.cpp.o -MF CMakeFiles/main.dir/src/main.cpp.o.d -o CMakeFiles/main.dir/src/main.cpp.o -c /home/kraschowetz/Documents/C++/shader_sample/src/main.cpp
 
 CMakeFiles/main.dir/src/main.cpp.i: cmake_force
@@ -173,6 +187,7 @@ main_OBJECTS = \
 "CMakeFiles/main.dir/src/core/timer.cpp.o" \
 "CMakeFiles/main.dir/src/gfx/canvas.cpp.o" \
 "CMakeFiles/main.dir/src/gfx/renderer.cpp.o" \
+"CMakeFiles/main.dir/src/gfx/shader.cpp.o" \
 "CMakeFiles/main.dir/src/gfx/vao.cpp.o" \
 "CMakeFiles/main.dir/src/gfx/vbo.cpp.o" \
 "CMakeFiles/main.dir/src/main.cpp.o"
@@ -184,6 +199,7 @@ main: CMakeFiles/main.dir/src/core/engine.cpp.o
 main: CMakeFiles/main.dir/src/core/timer.cpp.o
 main: CMakeFiles/main.dir/src/gfx/canvas.cpp.o
 main: CMakeFiles/main.dir/src/gfx/renderer.cpp.o
+main: CMakeFiles/main.dir/src/gfx/shader.cpp.o
 main: CMakeFiles/main.dir/src/gfx/vao.cpp.o
 main: CMakeFiles/main.dir/src/gfx/vbo.cpp.o
 main: CMakeFiles/main.dir/src/main.cpp.o
@@ -191,7 +207,7 @@ main: CMakeFiles/main.dir/build.make
 main: /usr/lib/x86_64-linux-gnu/libSDL2main.a
 main: /usr/lib/x86_64-linux-gnu/libSDL2.so
 main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kraschowetz/Documents/C++/shader_sample/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable main"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/kraschowetz/Documents/C++/shader_sample/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

@@ -14,7 +14,6 @@ class Engine {
 		Engine();
 		void start();
 		void stop();
-		
 		void poll_events();
 };
 

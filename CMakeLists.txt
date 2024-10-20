@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(game)
+project(main)
 
 option(VENDORED "use vendored libs" ON)
 

@@ -321,4 +321,5 @@ CMakeFiles/main.dir/src/gfx/canvas.cpp.o: \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/../util/types.hpp \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/renderer.hpp \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vao.hpp \
- /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vbo.hpp
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vbo.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/shader.hpp

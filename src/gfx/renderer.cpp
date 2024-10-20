@@ -1,5 +1,6 @@
 #include "renderer.hpp"
 #include "gfx.hpp"
+#include "shader.hpp"
 #include "vao.hpp"
 #include "vbo.hpp"
 
@@ -29,7 +30,10 @@ Renderer::Renderer(SDL_Window *window, bool debug_specs = true) {
 	}
 	
 	spec_vertices();
-	create_shader();
+	shader = create_shader(
+		"./res/shaders/2d.vert",
+		"./res/shaders/2d.frag"
+	);
 
 	if(!debug_specs) {
 		return;
@@ -39,50 +43,6 @@ Renderer::Renderer(SDL_Window *window, bool debug_specs = true) {
 	std::cout << "renderer: " << glGetString(GL_RENDERER) << "\n";
 	std::cout << "version: " << glGetString(GL_VERSION) << "\n";
 	std::cout << "lang version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << "\n";
-}
-
-std::string _load_shader(std::string src) {
-	std::ifstream file(src);
-	std::string line;
-	std::string code;
-
-	if(!file.is_open()) {
-		std::cerr << "error loading shader" << src << "\n";
-		return "error loading shader\n";
-	}
-
-	while(std::getline(file, line)) {
-		code += line + "\n";
-	}
-	file.close();
-
-	return code;
-}
-
-inline GLuint _compile(GLuint type, std::string src) {
-	GLuint shader;
-	shader = glCreateShader(type);
-	const char* char_ptr = src.c_str();
-	glShaderSource(shader, 1, &char_ptr, nullptr);
-	glCompileShader(shader);
-
-	return shader;
-}
-
-void Renderer::create_shader() {
-	shader_program = glCreateProgram();
-	GLuint vs = _compile(
-		GL_VERTEX_SHADER,
-		_load_shader("./res/shaders/2d.vert"));
-	GLuint fs = _compile(
-		GL_FRAGMENT_SHADER,
-		_load_shader("./res/shaders/2d.frag"));
-
-	glAttachShader(shader_program, vs);
-	glAttachShader(shader_program, fs);
-	glLinkProgram(shader_program);
-
-	glValidateProgram(shader_program);
 }
 
 void Renderer::spec_vertices() {
@@ -204,13 +164,10 @@ void Renderer::prepare() {
 void Renderer::render(SDL_Window *window) {
 	prepare();
 	
-	glUseProgram(shader_program);
-	GLuint time_uniform = glGetUniformLocation(shader_program, "time");
-
-	glUniform1f(time_uniform, time);
+	bind_shader(&shader);
+	shader_uniform_float(&shader, "time", time);
 
 	bind_vao(&vao);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vao.handle);
 
 	glDrawArrays(
 		GL_TRIANGLES,
@@ -218,11 +175,9 @@ void Renderer::render(SDL_Window *window) {
 		3
 	);
 	
-	glUseProgram(shader_program);
-	time_uniform = glGetUniformLocation(shader_program, "time");
-	glUniform1f(time_uniform, time);
+	shader_uniform_float(&shader, "time", time - 1.5);
+
 	bind_vao(&vao1);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vao1.handle);
 	glDrawArrays(
 		GL_TRIANGLES,
 		0,

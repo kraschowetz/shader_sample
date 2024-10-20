@@ -225,6 +225,30 @@ src/gfx/renderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/renderer.cpp.s
 .PHONY : src/gfx/renderer.cpp.s
 
+src/gfx/shader.o: src/gfx/shader.cpp.o
+.PHONY : src/gfx/shader.o
+
+# target to build an object file
+src/gfx/shader.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/shader.cpp.o
+.PHONY : src/gfx/shader.cpp.o
+
+src/gfx/shader.i: src/gfx/shader.cpp.i
+.PHONY : src/gfx/shader.i
+
+# target to preprocess a source file
+src/gfx/shader.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/shader.cpp.i
+.PHONY : src/gfx/shader.cpp.i
+
+src/gfx/shader.s: src/gfx/shader.cpp.s
+.PHONY : src/gfx/shader.s
+
+# target to generate assembly for a file
+src/gfx/shader.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/shader.cpp.s
+.PHONY : src/gfx/shader.cpp.s
+
 src/gfx/vao.o: src/gfx/vao.cpp.o
 .PHONY : src/gfx/vao.o
 
@@ -318,6 +342,9 @@ help:
 	@echo "... src/gfx/renderer.o"
 	@echo "... src/gfx/renderer.i"
 	@echo "... src/gfx/renderer.s"
+	@echo "... src/gfx/shader.o"
+	@echo "... src/gfx/shader.i"
+	@echo "... src/gfx/shader.s"
 	@echo "... src/gfx/vao.o"
 	@echo "... src/gfx/vao.i"
 	@echo "... src/gfx/vao.s"
