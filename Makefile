@@ -249,6 +249,30 @@ src/gfx/shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/shader.cpp.s
 .PHONY : src/gfx/shader.cpp.s
 
+src/gfx/triangle.o: src/gfx/triangle.cpp.o
+.PHONY : src/gfx/triangle.o
+
+# target to build an object file
+src/gfx/triangle.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/triangle.cpp.o
+.PHONY : src/gfx/triangle.cpp.o
+
+src/gfx/triangle.i: src/gfx/triangle.cpp.i
+.PHONY : src/gfx/triangle.i
+
+# target to preprocess a source file
+src/gfx/triangle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/triangle.cpp.i
+.PHONY : src/gfx/triangle.cpp.i
+
+src/gfx/triangle.s: src/gfx/triangle.cpp.s
+.PHONY : src/gfx/triangle.s
+
+# target to generate assembly for a file
+src/gfx/triangle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/main.dir/build.make CMakeFiles/main.dir/src/gfx/triangle.cpp.s
+.PHONY : src/gfx/triangle.cpp.s
+
 src/gfx/vao.o: src/gfx/vao.cpp.o
 .PHONY : src/gfx/vao.o
 
@@ -345,6 +369,9 @@ help:
 	@echo "... src/gfx/shader.o"
 	@echo "... src/gfx/shader.i"
 	@echo "... src/gfx/shader.s"
+	@echo "... src/gfx/triangle.o"
+	@echo "... src/gfx/triangle.i"
+	@echo "... src/gfx/triangle.s"
 	@echo "... src/gfx/vao.o"
 	@echo "... src/gfx/vao.i"
 	@echo "... src/gfx/vao.s"

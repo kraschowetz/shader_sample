@@ -1,8 +1,5 @@
 #include "renderer.hpp"
-#include "gfx.hpp"
-#include "shader.hpp"
-#include "vao.hpp"
-#include "vbo.hpp"
+#define TRIANGLE_LIFETIME 5.0
 
 Renderer::Renderer(SDL_Window *window, bool debug_specs = true) {
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
@@ -45,110 +42,55 @@ Renderer::Renderer(SDL_Window *window, bool debug_specs = true) {
 	std::cout << "lang version: " << glGetString(GL_SHADING_LANGUAGE_VERSION) << "\n";
 }
 
+Renderer::~Renderer() {
+	for(Triangle *tri : triangles) {
+		delete tri;
+	}
+}
+
 void Renderer::spec_vertices() {
-	const std::vector<GLfloat> vertex_position = {
-		-0.3f, -0.3f, 0.0f,
-		0.3f, -0.3f, 0.0f,
-		0.0f, 0.3f, 0.0f
-	};
-	const std::vector<GLfloat> vertex_color = {
-		1.0f, 0.0f, 0.0f,
-		0.0f, 1.0f, 0.0f,
-		0.0f, 0.0f, 1.0f
-	};
-
-	const std::vector<GLfloat> vertex_position1 = {
-		-1.0f, -1.0f, 0.0f,
-		-0.4f, -1.0f, 0.0f,
-		-0.7f, -0.7f, 0.0f
-	};
-	
-	vao = create_vao();
-	bind_vao(&vao);
-	vbo = create_vbo(GL_ARRAY_BUFFER);
-	bind_vbo(&vbo);
-	
-	buffer_vbo(
-		&vbo,
-		(void*)vertex_position.data(),
-		0,
-		vertex_position.size() * sizeof(GLfloat)
+	triangles.push_back( 
+		new Triangle(
+			{
+				-0.4f, -0.3f, 0.0f,
+				0.2f, -0.3f, 0.0f,
+				-0.1f, 0.3f, 0.0f
+			},
+			{
+				1.0f, 0.0f, 0.0f,
+				0.0f, 1.0f, 0.0f,
+				0.0f, 0.0f, 1.0f
+			}
+		)
 	);
-	
-	attr_vao(
-		&vao,
-		&vbo,
-		0,
-		3,
-		GL_FLOAT,
-		0,
-		0
+	triangles.push_back( 
+		new Triangle(
+			{
+				-0.3f, -0.3f, 0.0f,
+				0.3f, -0.3f, 0.0f,
+				0.0f, 0.3f, 0.0f
+			},
+			{
+				1.0f, 0.0f, 0.0f,
+				0.0f, 1.0f, 0.0f,
+				0.0f, 0.0f, 1.0f
+			}
+		)
 	);
-
-	//color
-	
-	vbo = create_vbo(GL_ARRAY_BUFFER);
-	buffer_vbo(
-		&vbo,
-		(void*)vertex_color.data(),
-		0,
-		vertex_color.size() * sizeof(GLfloat)
+	triangles.push_back( 
+		new Triangle(
+			{
+				-0.2f, -0.3f, 0.0f,
+				0.4f, -0.3f, 0.0f,
+				0.1f, 0.3f, 0.0f
+			},
+			{
+				1.0f, 0.0f, 0.0f,
+				0.0f, 1.0f, 0.0f,
+				0.0f, 0.0f, 1.0f
+			}
+		)
 	);
-
-	attr_vao(
-		&vao,
-		&vbo,
-		1,
-		3,
-		GL_FLOAT,
-		0,
-		0
-	);
-	
-	//second tri
-	
-	vao1 = create_vao();
-	bind_vao(&vao1);
-	vbo1 = create_vbo(GL_ARRAY_BUFFER);
-	
-	buffer_vbo(
-		&vbo1,
-		(void*)vertex_position1.data(),
-		0,
-		vertex_position1.size() * sizeof(GLfloat)
-	);
-	
-	attr_vao(
-		&vao1,
-		&vbo1,
-		0,
-		3,
-		GL_FLOAT,
-		0,
-		0
-	);
-	
-	vbo1 = create_vbo(GL_ARRAY_BUFFER);
-	
-	buffer_vbo(
-		&vbo1,
-		(void*)vertex_color.data(),
-		0,
-		vertex_color.size() * sizeof(GLfloat)
-	);
-	
-	attr_vao(
-		&vao1,
-		&vbo1,
-		1,
-		3,
-		GL_FLOAT,
-		0,
-		0
-	);
-
-
-	flush_vao_attr({0, 1});
 }
 
 void Renderer::prepare() {
@@ -166,23 +108,17 @@ void Renderer::render(SDL_Window *window) {
 	
 	bind_shader(&shader);
 	shader_uniform_float(&shader, "time", time);
-
-	bind_vao(&vao);
-
-	glDrawArrays(
-		GL_TRIANGLES,
-		0,
-		3
-	);
 	
-	shader_uniform_float(&shader, "time", time - 1.5);
-
-	bind_vao(&vao1);
-	glDrawArrays(
-		GL_TRIANGLES,
-		0,
-		3
-	);
+	for(Triangle *tri : triangles) {
+		tri->render();
+	}
 
 	SDL_GL_SwapWindow(window);
+
+	if(time > TRIANGLE_LIFETIME) {
+		for(Triangle *tri : triangles) {
+			delete tri;
+		}
+		triangles.clear();
+	}
 }

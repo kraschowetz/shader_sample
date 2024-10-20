@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/gfx/renderer.cpp.o.d"
   "CMakeFiles/main.dir/src/gfx/shader.cpp.o"
   "CMakeFiles/main.dir/src/gfx/shader.cpp.o.d"
+  "CMakeFiles/main.dir/src/gfx/triangle.cpp.o"
+  "CMakeFiles/main.dir/src/gfx/triangle.cpp.o.d"
   "CMakeFiles/main.dir/src/gfx/vao.cpp.o"
   "CMakeFiles/main.dir/src/gfx/vao.cpp.o.d"
   "CMakeFiles/main.dir/src/gfx/vbo.cpp.o"

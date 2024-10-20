@@ -1,7 +1,6 @@
-CMakeFiles/main.dir/src/gfx/renderer.cpp.o: \
- /home/kraschowetz/Documents/C++/shader_sample/src/gfx/renderer.cpp \
+CMakeFiles/main.dir/src/gfx/triangle.cpp.o: \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/triangle.cpp \
  /usr/include/stdc-predef.h \
- /home/kraschowetz/Documents/C++/shader_sample/src/gfx/renderer.hpp \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/triangle.hpp \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vao.hpp \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vbo.hpp \
@@ -321,5 +320,4 @@ CMakeFiles/main.dir/src/gfx/renderer.cpp.o: \
  /usr/include/c++/11/bits/unordered_map.h \
  /usr/include/c++/11/bits/erase_if.h \
  /usr/include/c++/11/pstl/execution_defs.h \
- /home/kraschowetz/Documents/C++/shader_sample/src/gfx/../util/types.hpp \
- /home/kraschowetz/Documents/C++/shader_sample/src/gfx/shader.hpp
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/../util/types.hpp

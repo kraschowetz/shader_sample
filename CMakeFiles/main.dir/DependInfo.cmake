@@ -13,6 +13,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/kraschowetz/Documents/C++/shader_sample/src/gfx/canvas.cpp" "CMakeFiles/main.dir/src/gfx/canvas.cpp.o" "gcc" "CMakeFiles/main.dir/src/gfx/canvas.cpp.o.d"
   "/home/kraschowetz/Documents/C++/shader_sample/src/gfx/renderer.cpp" "CMakeFiles/main.dir/src/gfx/renderer.cpp.o" "gcc" "CMakeFiles/main.dir/src/gfx/renderer.cpp.o.d"
   "/home/kraschowetz/Documents/C++/shader_sample/src/gfx/shader.cpp" "CMakeFiles/main.dir/src/gfx/shader.cpp.o" "gcc" "CMakeFiles/main.dir/src/gfx/shader.cpp.o.d"
+  "/home/kraschowetz/Documents/C++/shader_sample/src/gfx/triangle.cpp" "CMakeFiles/main.dir/src/gfx/triangle.cpp.o" "gcc" "CMakeFiles/main.dir/src/gfx/triangle.cpp.o.d"
   "/home/kraschowetz/Documents/C++/shader_sample/src/gfx/vao.cpp" "CMakeFiles/main.dir/src/gfx/vao.cpp.o" "gcc" "CMakeFiles/main.dir/src/gfx/vao.cpp.o.d"
   "/home/kraschowetz/Documents/C++/shader_sample/src/gfx/vbo.cpp" "CMakeFiles/main.dir/src/gfx/vbo.cpp.o" "gcc" "CMakeFiles/main.dir/src/gfx/vbo.cpp.o.d"
   "/home/kraschowetz/Documents/C++/shader_sample/src/main.cpp" "CMakeFiles/main.dir/src/main.cpp.o" "gcc" "CMakeFiles/main.dir/src/main.cpp.o.d"
