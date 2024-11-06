@@ -1,5 +1,5 @@
 #include "renderer.hpp"
-#define TRIANGLE_LIFETIME 5.0
+#define TRIANGLE_LIFETIME 60.0
 
 Renderer::Renderer(SDL_Window *window, bool debug_specs = true) {
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 4);
@@ -21,7 +21,7 @@ Renderer::Renderer(SDL_Window *window, bool debug_specs = true) {
 		std::cerr << "falha ao iniciar glew\n";
 		exit(-1);
 	}
-	if(SDL_GL_SetSwapInterval(1) < 0) {
+	if(SDL_GL_SetSwapInterval(0) < 0) {
 		std::cerr << "falha ao habilitar vsync\n";
 		exit(-1);
 	}
@@ -89,6 +89,14 @@ void Renderer::spec_vertices() {
 				0.0f, 1.0f, 0.0f,
 				0.0f, 0.0f, 1.0f
 			}
+		)
+	);
+
+	triangles.push_back(
+		new Triangle(
+			{0.0f, -0.5f},
+			0.5f,
+			{0.0f, 1.0f, 0.0f}
 		)
 	);
 }

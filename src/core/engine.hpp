@@ -9,6 +9,7 @@ class Engine {
 		Canvas *canvas;
 		bool running;
 		f32 delta;
+		u32 frames = 0;
 
 	public:
 		Engine();

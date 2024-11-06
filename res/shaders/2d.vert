@@ -12,7 +12,8 @@ void main() {
 		pos.x,
 		pos.y + sin(time + pos.x) * 0.25,
 		pos.z,
-		1.0f);
+		1.0f
+	);
 
 	vertex_color = color;
 }

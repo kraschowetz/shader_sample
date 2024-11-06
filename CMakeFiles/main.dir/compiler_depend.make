@@ -2035,6 +2035,7 @@ CMakeFiles/main.dir/src/gfx/triangle.cpp.o: src/gfx/triangle.cpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
+  /usr/include/assert.h \
   /usr/include/c++/11/algorithm \
   /usr/include/c++/11/array \
   /usr/include/c++/11/backward/binders.h \
@@ -2108,6 +2109,7 @@ CMakeFiles/main.dir/src/gfx/triangle.cpp.o: src/gfx/triangle.cpp \
   /usr/include/c++/11/bits/unordered_map.h \
   /usr/include/c++/11/bits/uses_allocator.h \
   /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/cassert \
   /usr/include/c++/11/cctype \
   /usr/include/c++/11/cerrno \
   /usr/include/c++/11/clocale \
@@ -3709,6 +3711,8 @@ src/gfx/canvas.cpp:
 
 /usr/include/SDL2/SDL_quit.h:
 
+/usr/include/c++/11/cassert:
+
 /usr/include/c++/11/ios:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/pmmintrin.h:
@@ -3746,6 +3750,8 @@ src/gfx/renderer.hpp:
 /usr/include/c++/11/bits/ios_base.h:
 
 /usr/include/c++/11/cstdio:
+
+/usr/include/assert.h:
 
 /usr/include/endian.h:
 

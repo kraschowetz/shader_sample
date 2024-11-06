@@ -3,8 +3,6 @@ CMakeFiles/main.dir/src/gfx/renderer.cpp.o: \
  /usr/include/stdc-predef.h \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/renderer.hpp \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/triangle.hpp \
- /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vao.hpp \
- /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vbo.hpp \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/gfx.hpp \
  /usr/include/SDL2/SDL.h /usr/include/SDL2/SDL_main.h \
  /usr/include/SDL2/SDL_stdinc.h /usr/include/SDL2/SDL_config.h \
@@ -322,4 +320,6 @@ CMakeFiles/main.dir/src/gfx/renderer.cpp.o: \
  /usr/include/c++/11/bits/erase_if.h \
  /usr/include/c++/11/pstl/execution_defs.h \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/../util/types.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vao.hpp \
+ /home/kraschowetz/Documents/C++/shader_sample/src/gfx/vbo.hpp \
  /home/kraschowetz/Documents/C++/shader_sample/src/gfx/shader.hpp
