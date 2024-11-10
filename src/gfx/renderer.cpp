@@ -122,6 +122,8 @@ void Renderer::render(SDL_Window *window) {
 	}
 
 	SDL_GL_SwapWindow(window);
+	
+	gl_check(glBindBuffer(GL_ARRAY_BUFFER, 100));
 
 	if(time > TRIANGLE_LIFETIME) {
 		for(Triangle *tri : triangles) {

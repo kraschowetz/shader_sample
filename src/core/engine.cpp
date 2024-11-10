@@ -37,12 +37,6 @@ void Engine::start() {
 		delta = (f32)(delta_timer.get_ticks() / 1000.0);
 		frames++;
 		delta_timer.start();
-
-		if(timer.get_ticks() / 1000.0 >= 1.0) {
-			timer.start();
-			std::cout << frames << "\n";
-			frames = 0;
-		}
 	}
 
 	stop();

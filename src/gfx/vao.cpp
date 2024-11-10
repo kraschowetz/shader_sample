@@ -13,7 +13,7 @@ void destroy_vao(struct VAO *self) {
 }
 
 void bind_vao(struct VAO *self) {
-	glBindVertexArray(self->handle);
+	gl_check(glBindVertexArray(self->handle));
 }
 
 void attr_vao(
